@@ -1,0 +1,27 @@
+@import "../../../assets/scss/index.scss";
+
+.right-header {
+    justify-content: flex-end;
+
+    i.icon {
+        height: 100%;
+        justify-content: center;
+        font-size: 19px;
+        color: $font-dark;
+    }
+
+    .ui.image.avatar {
+        width: 25px;
+        height: 25px;
+        border: 1px solid $border-dark;
+        padding: 2px;
+    }
+
+    i.icon,
+    .ui.image.avatar {
+        margin: 0 0 0 19px;
+        &:hover {
+            cursor: pointer;
+        }
+    }
+}
