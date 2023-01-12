@@ -1,19 +1,25 @@
-import React from 'react'
+import React, { useState } from 'react'
 import {Link} from 'react-router-dom'
 import { Icon, Image } from 'semantic-ui-react'
 import UserNotFound from '../../../assets/img/avatar.png'
+import { useAppSelector } from '../../../hooks/useAppSelector'
+import { NewPostModal } from '../../Modal/NewPostModal'
 import './RightHeader.scss'
 
 export default function RightHeader(){
+ 
+  const [ showModal, setShowModal ] = useState( false );
+  const user = useAppSelector( state => state.auth.user );
+
   return (
-    <div className='right-header'>
+    <>
+      <div className='right-header'>
+        <Icon name='plus' onClick={ () => setShowModal(true)}/>
         <Link to="/">
-            <Icon name='home'/>
+            <Image src={ user.urlPhoto ? user.urlPhoto : UserNotFound } avatar/>
         </Link>
-        <Icon name='plus'/>
-        <Link to="/">
-            <Image src={UserNotFound} avatar/>
-        </Link>
-    </div>
+      </div>
+      <NewPostModal show={showModal} setShow={setShowModal}/>
+    </>
   )
 }

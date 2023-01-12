@@ -1,12 +1,16 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { Provider } from 'react-redux';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import 'semantic-ui-css/semantic.min.css'
+import { PrivateRoute } from './components/PrivateRoute';
 import './index.scss';
 import AuthLayout from './layout/AuthLayout';
 import { UserLayout } from './layout/UserLayout';
 import { Login, Register } from './pages/Auth';
+import PostsWithoutAlbum from './pages/Posts/PostsWithoutAlbum/PostsWithoutAlbum';
+import UserProfile from './pages/User/UserProfile';
+import AlbumView from './pages/Album/AlbumView';
 import reportWebVitals from './reportWebVitals';
 import { store } from './store/store';
 import { checkForToken } from './utils/checkForToken';
@@ -23,7 +27,18 @@ root.render(
                 <Route path="login" element={<Login />} />
                 <Route path="register" element={<Register />} />
             </Route>
-            <Route path="/" element={ <UserLayout/>} />
+            <Route path="/mypicz" element={ 
+              <PrivateRoute>
+                <UserLayout />
+              </PrivateRoute>
+            } >
+              <Route path="profile" element={<UserProfile/>}/>
+              <Route path="album/:albumId" element={<AlbumView/>}/>
+              <Route path="posts-withoutalbum" element={<PostsWithoutAlbum/>}/>
+            </Route>
+            <Route
+                path="*"
+                element={<Navigate to="/mypicz/profile" replace />}/>
         </Routes>
     </BrowserRouter>
   </Provider>

@@ -8,7 +8,7 @@ export default function AuthLayout (){
 
   useEffect( ()=> {
     if( isUserLogged ){
-      window.location.href = "/";
+      window.location.href = "/mypicz";
     }
   }, [isUserLogged])
 

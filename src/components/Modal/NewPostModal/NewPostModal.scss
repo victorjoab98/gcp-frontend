@@ -1,0 +1,74 @@
+@import "../../../assets/scss/index.scss";
+
+.modal-newpost {
+    border-radius: 15px !important;
+    overflow: hidden;
+    padding: 8px;
+    width: 650px;
+    height: 650px;
+
+    .dropzone {
+        height: 100%;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        border: 2px dashed $border-dark;
+        border-radius: 15px !important;
+        position: relative;
+        z-index: 1;
+
+        i {
+            font-size: 50px;
+            color: $font-grey;
+        }
+    }
+
+    .image {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 90%;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+    }
+
+    .form-upload {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      height: 75px;
+      width: 100%;
+      z-index: 2;
+      
+      input {
+        margin: 0;
+        border: 0;
+        border-radius: 0;
+        background-color: #f9f9f9 !important;
+      }
+    }
+    .btn-upload {
+        background-color: $action;
+        color: $font-light;
+        position: absolute;
+        height: 37px;
+        width: 100%;
+        bottom: 0;
+        left: 0;
+        border: 0;
+        border-radius: 0;
+        margin: 0;
+    }
+
+    .uploading {
+        p {
+            margin-top: 80px;
+            font-size: 18px;
+        }
+    }
+
+}

@@ -1,0 +1,23 @@
+@import "../../assets/scss/index.scss";
+
+.album-posts {
+
+    margin-top: 50px;
+    
+    .album-header {
+        display: flex;
+        align-items: center;
+        margin-bottom: 30px;
+      
+        h2 {
+          margin: 0 15px 0 0;
+        }
+
+        i.icon {
+            margin-bottom: 3px;
+            &:hover {
+                cursor: pointer;
+            }
+        }
+    }
+}
