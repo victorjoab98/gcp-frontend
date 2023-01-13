@@ -1,10 +1,15 @@
 #docker build --platform linux/amd64 --no-cache -t victorjoab98/gcp-frontend-amd:1.0.0 .
 FROM node:18-alpine3.15 as build
-# ENV REACT_APP_API_URL=http://34.69.50.81:4000/api
+
+# Install python/pip
+ENV PYTHONUNBUFFERED=1
+RUN apk add --update --no-cache python3 && ln -sf python3 /usr/bin/python
+RUN python3 -m ensurepip
+RUN pip3 install --no-cache --upgrade pip setuptools
 
 WORKDIR /app
 COPY ./package.json ./
-RUN npm install --legacy-peer-deps
+RUN npm install 
 COPY . .
 
 RUN REACT_APP_API_URL=http://34.69.50.81:4000/api \
