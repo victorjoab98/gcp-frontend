@@ -32,13 +32,13 @@ root.render(
                 <UserLayout />
               </PrivateRoute>
             } >
-              <Route path="profile" element={<UserProfile/>}/>
+              <Route path="home" element={<UserProfile/>}/>
               <Route path="album/:albumId" element={<AlbumView/>}/>
               <Route path="posts-withoutalbum" element={<PostsWithoutAlbum/>}/>
             </Route>
             <Route
                 path="*"
-                element={<Navigate to="/mypicz/profile" replace />}/>
+                element={<Navigate to="/mypicz/home" replace />}/>
         </Routes>
     </BrowserRouter>
   </Provider>

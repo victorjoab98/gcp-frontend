@@ -29,7 +29,7 @@ export default function Albums() {
         </Grid.Column>
         { albums.length ? albums.map( album => (
           <Grid.Column key={album.id}>
-            <AlbumPreview album={album} urlRedirect={`/home/album/${album.id}`}/>          
+            <AlbumPreview album={album} urlRedirect={`/mypicz/album/${album.id}`}/>          
           </Grid.Column>
           ))
           : <h4>No albums</h4> 

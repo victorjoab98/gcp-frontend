@@ -21,6 +21,7 @@ export default function AvatarForm({ setShow }) {
     }).catch( ( err ) => {
         setResponse( { loading: false, message: err.response.data.message || "We're sorry something went wrong. Please try again." } )
     })
+    // eslint-disable-next-line
   }, []);
 
   const { getRootProps, getInputProps } = useDropzone({

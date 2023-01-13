@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import {Link} from 'react-router-dom'
 import { Icon, Image } from 'semantic-ui-react'
 import UserNotFound from '../../../assets/img/avatar.png'
 import { useAppSelector } from '../../../hooks/useAppSelector'
@@ -11,13 +10,16 @@ export default function RightHeader(){
   const [ showModal, setShowModal ] = useState( false );
   const user = useAppSelector( state => state.auth.user );
 
+  const onClickProfile = () => {
+    window.location.href = "https://dsu-gcp-373020.uc.r.appspot.com/mypicz/profile/" + user.id;
+  }
+
   return (
     <>
       <div className='right-header'>
         <Icon name='plus' onClick={ () => setShowModal(true)}/>
-        <Link to="/">
-            <Image src={ user.urlPhoto ? user.urlPhoto : UserNotFound } avatar/>
-        </Link>
+
+        <Image src={ user.urlPhoto ? user.urlPhoto : UserNotFound } avatar onClick={onClickProfile} />
       </div>
       <NewPostModal show={showModal} setShow={setShowModal}/>
     </>
