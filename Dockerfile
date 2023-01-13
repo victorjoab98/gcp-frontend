@@ -1,5 +1,5 @@
 #docker build --platform linux/amd64 --no-cache -t victorjoab98/gcp-frontend-amd:1.0.0 .
-FROM node:18-alpine3.15 as build
+FROM node:18 as build
 
 # Install python/pip
 ENV PYTHONUNBUFFERED=1
