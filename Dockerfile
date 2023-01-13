@@ -2,12 +2,13 @@
 FROM node:18-alpine3.15 as build
 
 # Install python/pip
-ENV PYTHONUNBUFFERED=1
-RUN apk add --update --no-cache python3 && ln -sf python3 /usr/bin/python
-RUN python3 -m ensurepip
-RUN pip3 install --no-cache --upgrade pip setuptools
+# ENV PYTHONUNBUFFERED=1
+# RUN apk add --update --no-cache python3 && ln -sf python3 /usr/bin/python
+# RUN python3 -m ensurepip
+# RUN pip3 install --no-cache --upgrade pip setuptools
 
 WORKDIR /app
+COPY ./yarn.lock ./
 COPY ./package.json ./
 RUN yarn install 
 COPY . .
